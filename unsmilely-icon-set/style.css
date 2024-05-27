@@ -581,3 +581,15 @@ main {
 		opacity:1;
 	}
 }
+/* prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.one.base, .two.base, .three.base, .four.base, .five.base, 
+	.one.eye-cross, .one.eye-round, .one.mouth, .one.dot, .one.line,
+	.two.eye-cross, .two.mouth, .two.dot, .two.line,
+	.three.eye-cross, .three.dot, .three.line,
+	.four.eye-cross, .four.mouth, .four.dot, .four.line, 
+	.five.eye-cross, .five.dot, .five.line {
+	  animation: none;
+	}
+  }
+  
