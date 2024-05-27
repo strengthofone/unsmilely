@@ -1,0 +1,583 @@
+/* basics */
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+html {
+	box-sizing: border-box;
+	padding:1em;
+	margin:0;
+}
+body {
+	font-family:sans-serif;
+	font-size:1em;
+	color:#999;
+	text-align: center;
+	padding:0;
+	margin:0;
+}
+main {
+	display: grid;
+	grid-template-columns:repeat(auto-fill, minmax(200px, 1fr) ) ;
+	grid-gap: 1em;
+	justify-items:center;
+}
+.container {
+	margin:1em;
+}
+
+:root {
+  --size: 25;
+  --unit: calc((var(--size) / 400) * 1vmin);
+}
+/* unsmilely one ----------------------- */
+.one.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	display: block;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmile-one-base;
+}
+.one.eye-round {
+	position:absolute;
+	top: calc(70 * var(--unit));
+	left:calc(60 * var(--unit));
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	border:calc(24 * var(--unit)) solid #000;
+	background:#fff;
+	animation: 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both  unsmile-one-mouth;
+}
+.one.eye-cross {
+    position: absolute;
+	top: calc(70 * var(--unit));
+	left:calc(200 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-one-eye;
+}
+.one.eye-cross:before,
+.one.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.one.eye-cross:before {
+    transform: rotate(45deg);
+}
+.one.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.one.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(240 * var(--unit));
+	left:calc(60 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .75s 1 both  unsmile-one-dot;
+}
+.one.line {
+	width: calc(180 * var(--unit));
+	height: calc(60 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(250 * var(--unit));
+	left:calc(160 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s 1 both  unsmile-one-line;
+}
+@keyframes unsmile-one-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-one-mouth {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);;
+		opacity:1;
+	}
+}
+@keyframes unsmile-one-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmile-one-line {
+	0% {
+		transform-origin: top left;
+		transform: scale(0,1);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-one-dot {
+	0% {
+		transform: scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+/* end one ------------------------------- */ 
+
+/* unsmilely two ------------------------ */
+.two.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmile-two-base;
+}
+.two.eye-cross {
+    position: absolute;
+	top: calc(60 * var(--unit));
+	left:calc(74 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both  unsmile-two-eye;
+}
+.two.eye-cross:before,
+.two.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.two.eye-cross:before {
+    transform: rotate(45deg);
+}
+.two.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.two.mouth {
+	width: calc(100 * var(--unit));
+	height: calc(100 * var(--unit));
+	border-radius: 50%;
+	border:calc(30* var(--unit)) solid #000;
+	clip-path: circle(calc(120 * var(--unit)) at 0 calc(180 * var(--unit)));
+	background:#fff;
+	position:absolute;
+	top: calc(180 * var(--unit));
+	left: calc(84 * var(--unit));
+	animation: 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-two-mouth;
+}
+.two.line {
+	width: calc(60 * var(--unit));
+	height: calc(180 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(60 * var(--unit));
+	left:calc(240 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .75s 1 both  unsmile-two-line;
+}
+.two.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(260 * var(--unit));
+	left:calc(230 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s 1 both  unsmile-two-dot;
+}
+
+@keyframes unsmile-two-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-two-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmile-two-mouth {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);;
+		opacity:1;
+	}
+}
+@keyframes unsmile-two-line {
+	0% {
+		transform-origin: top center;
+		transform: scale(1,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-two-dot {
+	0% {
+		transform: translateY(-80px) scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform:  translateY(0) scale(1,1);
+		opacity:1;
+	}
+}
+/* end two ------------------------------ */
+
+/* unsmilely three ---------------------- */
+.three.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmile-three-base;
+}
+.three.eye-cross {
+    position: absolute;
+	top: calc(70 * var(--unit));
+	left:calc(130 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both  unsmile-three-eye;
+}
+.three.eye-cross:before,
+.three.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.three.eye-cross:before {
+    transform: rotate(45deg);
+}
+.three.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.three.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(240 * var(--unit));
+	left:calc(60 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-three-dot;
+}
+.three.line {
+	width: calc(180 * var(--unit));
+	height: calc(60 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(250 * var(--unit));
+	left:calc(160 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-three-line;
+}
+@keyframes unsmile-three-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-line {
+	0% {
+		transform-origin: top left;
+		transform: scale(0,1);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-dot {
+	0% {
+		transform: scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+/* end three ------------------------------ */
+
+/* unsmiley four ------------------- */
+.four.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmile-four-base;
+}
+.four.eye-cross {
+    position: absolute;
+	top: calc(60 * var(--unit));
+	left:calc(74 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both   unsmile-four-eye;
+}
+.four.eye-cross:before,
+.four.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.four.eye-cross:before {
+    transform: rotate(45deg);
+}
+.four.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.four.mouth {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	border:calc(24 * var(--unit)) solid #000;
+	background:#fff;
+	position:absolute;
+	top: calc(220 * var(--unit));
+	left: calc(70 * var(--unit));
+	animation: 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both   unsmile-four-mouth;
+}
+.four.line {
+	width: calc(60 * var(--unit));
+	height: calc(180 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(60 * var(--unit));
+	left:calc(240 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .75s 1 both   unsmile-four-line;
+}
+.four.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(260 * var(--unit));
+	left:calc(230 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s 1 both  unsmile-four-dot;
+}
+@keyframes unsmile-four-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-four-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmile-four-mouth {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);;
+		opacity:1;
+	}
+}
+@keyframes unsmile-four-line {
+	0% {
+		transform-origin: top center;
+		transform: scale(1,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-four-dot {
+	0% {
+		transform: translateY(-80px) scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform:  translateY(0) scale(1,1);
+		opacity:1;
+	}
+}
+/* end four ------------------------------ */
+
+/* unsmilely five --------------------- */
+.five.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmilely-five-base;
+}
+.five.eye-cross {
+    position: absolute;
+	top: calc(130 * var(--unit));
+	left:calc(60 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both  unsmilely-five-eye;
+}
+.five.eye-cross:before,
+.five.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.five.eye-cross:before {
+    transform: rotate(45deg);
+}
+.five.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.five.line {
+	width: calc(60 * var(--unit));
+	height: calc(180 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(60 * var(--unit));
+	left:calc(240 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .75s 1 both  unsmilely-five-line;
+}
+.five.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(260 * var(--unit));
+	left:calc(230 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 1s 1 both  unsmilely-five-dot;
+}
+@keyframes unsmilely-five-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmilely-five-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmilely-five-line {
+	0% {
+		transform-origin: top center;
+		transform: scale(1,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmilely-five-dot {
+	0% {
+		transform: translateY(-80px) scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform:  translateY(0) scale(1,1);
+		opacity:1;
+	}
+}
