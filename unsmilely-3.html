@@ -1,0 +1,170 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Unsmilely Icon #3</title>
+	<meta name="description" content="Drawing and animating a new set of emoji icons. ">
+	<meta name="keywords" content="illustration, animation, emoji, icon, design, web development, web design">
+	<meta name="author" content="Keith Hart">
+</head>
+
+<body>
+
+<style>
+/* basics ------------------- */
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+html {
+	box-sizing: border-box;
+	padding:0;
+	margin:0;
+}
+body {
+	font-family:sans-serif;
+	font-size:1em;
+	color:#999;
+	text-align: center;
+	padding:0;
+	margin:0;
+}
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+/* unsmilely three ----------------------- */
+:root {
+  --size: 50; 
+  --unit: calc((var(--size) / 400) * 1vmin); /* makes it responsive */
+}
+.container {
+	margin:1em;
+}
+.base {
+	height: calc(400 * var(--unit));
+	width: calc(400 * var(--unit));
+	border-radius: 50%;
+	border:calc(32 * var(--unit)) solid #000;
+	background:#fff;
+	position:relative;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) 0s 1 both  unsmile-three-base;
+}
+.eye-cross {
+    position: absolute;
+	top: calc(70 * var(--unit));
+	left:calc(130 * var(--unit));
+    height: calc(140 * var(--unit)); /* set the size */
+    width: calc(140 * var(--unit));  /* maintain 1:1 aspect ratio */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .25s 1 both  unsmile-three-eye;
+}
+.eye-cross:before,
+.eye-cross:after {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: calc(32 * var(--unit)); /* line thickness */
+    background-color: #000;
+}
+.eye-cross:before {
+    transform: rotate(45deg);
+}
+.eye-cross:after {
+    transform: rotate(-45deg);
+}
+.dot {
+	width: calc(80 * var(--unit));
+	height: calc(80 * var(--unit));
+	border-radius: 50%;
+	background:#000;
+	position:absolute;
+	top: calc(240 * var(--unit));
+	left:calc(60 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-three-dot;
+}
+.line {
+	width: calc(180 * var(--unit));
+	height: calc(60 * var(--unit));
+	background:#000;
+	position:absolute;
+	top: calc(250 * var(--unit));
+	left:calc(160 * var(--unit));
+	animation:  0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both  unsmile-three-line;
+}
+@keyframes unsmile-three-base {
+	0% {
+		transform: scale(0,0);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-eye {
+	0% {
+		transform: scale(0,0) rotate(0deg);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1) rotate(360deg);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-line {
+	0% {
+		transform-origin: top left;
+		transform: scale(0,1);
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+@keyframes unsmile-three-dot {
+	0% {
+		transform: scale(0,0) ;
+		opacity:0;
+	}
+	100% {
+		transform: scale(1,1);
+		opacity:1;
+	}
+}
+
+</style>
+
+<main>
+
+<!-- unsmilely three -->
+<section class="container">
+	<div class="base">
+		<div class="eye-cross"></div>
+		<div class="dot"></div>
+		<div class="line"></div>
+	</div>
+</section>
+
+</main>
+
+
+<footer>
+	<p>Made with <span>♥</span> in NYC<br/><br/>
+	<a href="http://strengthofone.com/unsmilely">strengthofone</a></p>
+</footer>
+
+<!-- Copyright 2021 strengthofone.com  -->	
+
+
+</body>
+</html>
