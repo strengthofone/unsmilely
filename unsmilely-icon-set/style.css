@@ -411,7 +411,7 @@ main {
 	background:#fff;
 	position:absolute;
 	top: calc(220 * var(--unit));
-	left: calc(70 * var(--unit));
+	left: calc(79 * var(--unit));
 	animation: 0.5s cubic-bezier(0.175, 0.885, 0.320, 1.275) .5s 1 both   unsmile-four-mouth;
 }
 .four.line {
